@@ -1,31 +1,31 @@
 <div class="container-xl">
   <div class="d-flex justify-content-center align-items-center mt-5">
     <table class="table">
-  <thead class="thead-primary">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Imię</th>
-      <th scope="col">Nazwisko</th>
-      <th scope="col">Email</th>
-      <th scope="col">Akcje</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <th scope="row"><%= user.id %></th>
-      <td><%= user.first_name %></td>
-      <td><%= user.last_name %></td>
-      <td><%= user.email %></td>
-      <td>
-        <%= link_to 'Podgląd', '#', class: 'btn btn-success btn-sm' %>
-        <%= link_to 'Edytuj', '#', class: 'btn btn-primary btn-sm' %>
-        <%= link_to 'Usuń', '#', class: 'btn btn-danger btn-sm' %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      <thead class="thead-primary">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Imię</th>
+          <th scope="col">Nazwisko</th>
+          <th scope="col">Email</th>
+          <th scope="col">Akcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <th scope="row"><%= user.id %></th>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+            <td>
+              <%= link_to 'Podgląd', user, class: 'btn btn-success btn-sm' %>
+              <%= link_to 'Edytuj', edit_user_path(user), class: 'btn btn-primary btn-sm' %>
+              <%= button_to 'Usuń', user_path(user), method: :delete, class: 'btn btn-danger btn-sm' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
+  <h5><%= link_to 'Nowy Użytkownik', new_user_path %></h5>
 </div>
-

@@ -18,15 +18,14 @@
             <td><%= user.last_name %></td>
             <td><%= user.email %></td>
             <td>
-              <%= link_to 'Podgląd', '#', class: 'btn btn-success btn-sm' %>
-              <%= link_to 'Edytuj', '#', class: 'btn btn-primary btn-sm' %>
-              <%= link_to 'Usuń', '#', class: 'btn btn-danger btn-sm' %>
+              <%= link_to 'Podgląd', user, class: 'btn btn-success btn-sm' %>
+              <%= link_to 'Edytuj', edit_user_path(user), class: 'btn btn-primary btn-sm' %>
+              <%= button_to 'Usuń', user_path(user), method: :delete, class: 'btn btn-danger btn-sm' %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
-
-    <h5><%= link_to 'Nowy Użytkownik', new_user_path %></h5>
   </div>
+  <h5><%= link_to 'Nowy Użytkownik', new_user_path %></h5>
 </div>

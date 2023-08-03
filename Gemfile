@@ -31,7 +31,9 @@ gem "cssbundling-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+ gem "redis", "~> 4.0"
+
+ gem 'pry', '~> 0.13.1'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -65,6 +67,12 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :development do
+  gem 'rubocop', '~> 1.41', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'web-console'
 end
 
 group :test do

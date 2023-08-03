@@ -1,2 +1,18 @@
 <h1><%= @user.first_name %> <%= @user.last_name %> <%= @user.email%></h1>
+<br>
+<%= link_to 'Dodaj adres', new_user_address_path(@user) %>
+  
+ <% @user.addresses.each do |address| %>
+    <p>------------------</p>
+    <%= address.street %>
+    <%= address.country %>
+    <%= address.city %>
+    <%= address.state %>
+    <%= address.postal_code %>
+    <%= link_to 'Edytuj adres', edit_user_address_path(@user, address) %>
+    <%= button_to "Usuń", user_address_path(@user, address), method: :delete %>
+    <p>------------------</p>
+    <br>
+  <% end %>
 
+  <%= link_to 'Powrót', users_path %>

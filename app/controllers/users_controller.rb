@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show, edit, update, destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   def index
    @users = User.all
@@ -33,8 +33,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    ensure
-      redirect_to root_path, status: 303
+
+    redirect_to root_path, status: 303
   end
 
   private

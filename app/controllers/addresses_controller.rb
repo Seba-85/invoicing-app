@@ -20,9 +20,9 @@ class AddressesController < ApplicationController
     @address = @user.addresses.new(address_params)
 
     if @address.save
-    redirect_to user_path(@user)
+      redirect_to user_path(@user)
     else
-    render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

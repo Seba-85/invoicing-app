@@ -1,7 +1,6 @@
 <h1>Nowy Adres:</h1>
 
 <%= form_with(model: @address, url: user_addresses_path(@user)) do |f| %>
-
   <%= f.fields_for :address do |ff| %>
     <div>
       <%= ff.label :street, 'Ulica' %><br>
@@ -27,8 +26,8 @@
       <%= ff.label :postal_code, 'Kod pocztowy' %><br>
       <%= ff.text_field :postal_code %>
     </div>
-
   <% end %>
+
   <div>
     <%= f.submit 'Zapisz' %>
   </div>

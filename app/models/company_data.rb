@@ -1,2 +1,0 @@
-class CompanyData < ApplicationRecord
-end

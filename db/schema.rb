@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_07_171313) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_07_173225) do
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "street"
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_07_171313) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "company_data", force: :cascade do |t|
+  create_table "companies", force: :cascade do |t|
     t.string "company_name"
     t.string "owner_name"
     t.string "owner_last_name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_07_171313) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_company_data_on_user_id"
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,5 +51,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_07_171313) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "company_data", "users"
+  add_foreign_key "companies", "users"
 end

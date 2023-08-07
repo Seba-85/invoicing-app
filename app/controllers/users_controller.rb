@@ -9,7 +9,9 @@ class UsersController < ApplicationController
    @user = User.new
   end
 
-  def show; end
+  def show
+    @presenter = CompanyPresenter.new(@user)
+  end
 
   def edit; end
 

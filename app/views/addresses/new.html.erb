@@ -1,34 +1,35 @@
-<h1>Nowy Adres:</h1>
+<div class="container-xl">  
+  <div class="d-flex flex-column justify-content-center align-items-center m-5 border py-5">
+    <h2>Nowy adres:</h2>
 
-<%= form_with(model: @address, url: user_addresses_path(@user)) do |f| %>
-  <%= f.fields_for :address do |ff| %>
-    <div>
-      <%= ff.label :street, 'Ulica' %><br>
-      <%= ff.text_field :street %>
+    <div class='mt-3'>
+      <%= form_with(model: @address, url: user_addresses_path(@user)) do |f| %>
+        <%= f.fields_for :address do |ff| %>
+          <div class="form-group">
+            <%= ff.label :street, 'Ulica' %>
+            <%= ff.text_field :street, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :state, 'Numer domu/lokalu' %>
+            <%= ff.text_field :state, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :postal_code, 'Kod pocztowy' %>
+            <%= ff.text_field :postal_code, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :city, 'Miasto' %>
+            <%= ff.text_field :city, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :country, 'Kraj' %>
+            <%= ff.text_field :country, class: 'form-control' %>
+          </div>
+          
+          <%= f.submit 'Zapisz', class: 'btn btn-primary' %>
+          <%= link_to 'Powrót', user_path(@user), class: 'btn btn-secondary ml-1' %>
+        <% end %>
+      <% end %>
     </div>
-
-    <div>
-      <%= ff.label :city, 'Miasto' %><br>
-      <%= ff.text_field :city %>
-    </div>
-
-    <div>
-      <%= ff.label :state, 'Numer domu' %><br>
-      <%= ff.text_field :state %>
-    </div>
-
-    <div>
-      <%= ff.label :country, 'Kraj' %><br>
-      <%= ff.text_field :country %>
-    </div>
-
-    <div>
-      <%= ff.label :postal_code, 'Kod pocztowy' %><br>
-      <%= ff.text_field :postal_code %>
-    </div>
-  <% end %>
-
-  <div>
-    <%= f.submit 'Zapisz' %>
   </div>
-<% end %>
+</div>

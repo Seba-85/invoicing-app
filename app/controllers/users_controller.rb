@@ -19,9 +19,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user
+      redirect_to @user, notice: 'Użytkownik został prawidłowo dodany'
     else
       render :new
+
+      flash[:alert] = "Wystąpił błąd podczas dodawania użytkownika."
     end
   end
 

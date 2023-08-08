@@ -26,40 +26,8 @@
             </div>
           <% end %>
         </div>
-
-        <p class="mt-3"><strong>Dane firmy:</strong></p> 
-
-        <div class="card">
-          <h5 class="card-header"># <%= @presenter.company&.id %></h5>
-          <div class="card-body">
-            <p class="card-text">Nazwa firmy: <%= @presenter.company&.company_name %></p>
-            <p class="card-text">Imię właściciela: <%= @presenter.company&.owner_name %></p>
-            <p class="card-text">Nazwisko właściciela: <%= @presenter.company&.owner_last_name %></p>
-            <p class="card-text">Ulica: <%= @presenter.company&.street %></p>
-            <p class="card-text">Kod pocztowy: <%= @presenter.company&.postal_code %></p>
-            <p class="card-text">Miasto: <%= @presenter.company&.city %></p>
-            <p class="card-text">Województwo: <%= @presenter.company&.province %></p>
-            <p class="card-text">Kraj: <%= @presenter.company&.country %></p>
-            <p class="card-text">NIP: <%= @presenter.company&.tax_number %></p>
-            <p class="card-text">REGON: <%= @presenter.company&.regon %></p>
-            <p class="card-text">Numer telefonu: <%= @presenter.company&.phone_number %></p>
-            
-            <div class="d-flex justify-content-end">
-              <% if company_present? %>
-                <%= link_to 'Edytuj dane firmy', edit_user_company_path(@user, @user.company), class: 'btn btn-primary mr-1' %>
-                <%= button_to "Usuń", user_company_path(@user, @user.company), method: :delete, class: 'btn btn-danger' %>
-              <% else %>
-                <%= link_to 'Uzupełnij dane firmy', new_user_company_path(@user), class: 'btn btn-primary' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
         <div class="mt-3">
           <%= link_to 'Dodaj adres', new_user_address_path(@user), class: 'btn btn-primary' %>
-          <% if !company_present? %>
-            <%= link_to 'Dodaj dane firmy', new_user_company_path(@user), class: 'btn btn-primary' %>
-          <% end %>
           <%= link_to 'Powrót', users_path, class: 'btn btn-secondary' %>
         </div>
       </div>

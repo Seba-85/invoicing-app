@@ -33,7 +33,7 @@ class AddressesController < ApplicationController
   def destroy
     if @address.destroy
     
-    redirect_to user_path(@user), notice: 'Adres został prawidłowo usunięty'
+      redirect_to user_path(@user), notice: 'Adres został prawidłowo usunięty'
     else
       flash[:alert] = 'Wystąpił błąd podczas usuwania adresu.'
     end

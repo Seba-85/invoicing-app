@@ -13,7 +13,6 @@ class CompaniesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
 
-      
       flash[:alert] = 'Wystąpił błąd podczas dodawania danych.'
     end
   end

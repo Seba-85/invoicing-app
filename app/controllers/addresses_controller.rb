@@ -8,28 +8,35 @@ class AddressesController < ApplicationController
 
   def edit; end
 
-  def update
-    if @address.update(address_params)
-      redirect_to user_path(@user)
-    else
-      render :edit
-    end
-  end
-
   def create
     @address = @user.addresses.new(address_params)
 
     if @address.save
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), notice: 'Adres został prawidłowo dodany'
     else
       render :new, status: :unprocessable_entity
+
+      flash[:alert] = 'Wystąpił błąd podczas dodawania adresu.'
+    end
+  end
+
+  def update
+    if @address.update(address_params)
+      redirect_to user_path(@user),  notice: 'Adres został prawidłowo edytowany'
+    else
+      render :edit
+
+      flash[:alert] = 'Wystąpił błąd podczas edycji adresu.'
     end
   end
 
   def destroy
-    @address.destroy
+    if @address.destroy
     
-    redirect_to user_path(@user)
+    redirect_to user_path(@user), notice: 'Adres został prawidłowo usunięty'
+    else
+      flash[:alert] = 'Wystąpił błąd podczas usuwania adresu.'
+    end
   end
 
   private

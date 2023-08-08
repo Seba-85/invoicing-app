@@ -5,28 +5,36 @@ class CompaniesController < ApplicationController
 
   def edit; end
 
-  def update
-    if @user.company.update(company_params)
-      redirect_to user_path(@user)
-    else
-      render :edit
-    end
-  end
-
   def create
     @company = @user.create_company(company_params)
 
     if @company.save
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), notice: 'Dane firmy zostały prawidłowo dodane'
     else
       render :new, status: :unprocessable_entity
+
+      
+      flash[:alert] = 'Wystąpił błąd podczas dodawania danych.'
+    end
+  end
+
+  def update
+    if @user.company.update(company_params)
+      redirect_to user_path(@user), notice: 'Dane firmy zostały prawidłowo edytowane'
+    else
+      render :edit
+
+      flash[:alert] = 'Wystąpił błąd podczas edycji danych.'
     end
   end
 
   def destroy
-    @user.company.destroy
+    if @user.company.destroy
     
-    redirect_to user_path(@user)
+    redirect_to user_path(@user), notice: 'Dane firmy zostały prawidłowo usunięte'
+    else
+      flash[:alert] = 'Wystąpił błąd podczas usuwania danych.'
+    end
   end
 
   private

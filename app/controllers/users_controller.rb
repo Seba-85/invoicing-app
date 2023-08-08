@@ -23,22 +23,27 @@ class UsersController < ApplicationController
     else
       render :new
 
-      flash[:alert] = "Wystąpił błąd podczas dodawania użytkownika."
+      flash[:alert] = 'Wystąpił błąd podczas dodawania użytkownika.'
     end
   end
 
   def update
     if @user.update(user_params)
-      redirect_to @user
+      redirect_to @user, notice: 'Użytkownik został prawidłowo edytowany'
     else
       render :edit, status: :unprocessable_entity
+
+      flash[:alert] = 'Wystąpił błąd podczas edycji użytkownika.'
     end
   end
 
   def destroy
-    @user.destroy
+   if  @user.destroy
 
-    redirect_to root_path, status: 303
+    redirect_to root_path, notice: 'Użytkownik został prawidłowo usunięty'
+   else 
+    flash[:alert] = 'Wystąpił błąd podczas usuwania użytkownika.'
+   end
   end
 
   private

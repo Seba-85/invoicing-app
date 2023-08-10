@@ -38,9 +38,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-   if  @user.destroy
-
-    redirect_to root_path, notice: 'Użytkownik został prawidłowo usunięty'
+   if @user.destroy
+    redirect_to users_path, notice: 'Użytkownik został prawidłowo usunięty'
    else 
     flash[:alert] = 'Wystąpił błąd podczas usuwania użytkownika.'
    end

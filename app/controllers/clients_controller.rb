@@ -37,15 +37,12 @@ class ClientsController < ApplicationController
 
   def destroy
     if @client.destroy
-    
       redirect_to user_clients_path(@user), notice: 'Dane klienta zostały prawidłowo usunięte'
     else
       flash[:alert] = 'Wystąpił błąd podczas usuwania adresu.'
     end
   end
 
-
-  
   private
 
   def find_user

@@ -1,0 +1,36 @@
+<div class="container-xl">
+  <div class="d-flex justify-content-center align-items-center mt-5">
+    <table class="table">
+      <thead class="thead-primary">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nazwa firmy</th>
+          <th scope="col">Imię właściciela</th>
+          <th scope="col">Nazwisko właściciela</th>
+          <th scope="col">NIP</th>
+          <th scope="col">REGON</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.clients.each do |client| %>
+          <tr>
+            <th scope="row"><%= client.id %></th>
+            <td><%= client.company_name %></td>
+            <td><%= client.owner_name %></td>
+            <td><%= client.owner_last_name %></td>
+            <td><%= client.tax_number %></td>
+            <td><%= client.regon %></td>
+            <td><%= client.email %></td>
+            <td class="d-flex">
+              <%= link_to 'Podgląd', user_client_path(@user, client), class: 'btn btn-success btn-sm ml-1' %>
+              <%= link_to 'Edytuj', edit_user_client_path(@user, client), class: 'btn btn-primary btn-sm ml-1' %>
+              <%= button_to "Usuń", user_client_path(@user, client), method: :delete, class: 'btn btn-danger btn-sm ml-1' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to 'Nowy Klient', new_user_client_path, class: 'btn btn-primary btn-sm w-100 p-2 mt-3'%>
+</div>

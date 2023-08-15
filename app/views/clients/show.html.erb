@@ -1,0 +1,35 @@
+<div class="container-xl">  
+  <div class="d-flex flex-column justify-content-center align-items-center m-5 border py-5">
+
+    <div class="media p-5">
+      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="mr-3 user-img" alt="user-img">
+      <div class="media-body">
+        <h5 class="mt-0"><%= @client.company_name %></h5>
+        <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia.</p>
+        <p><strong>Dane klienta:</strong></p>  
+
+        <div class="card">
+          <h5 class="card-header"># <%= @client.id%></h5>
+          <div class="card-body">
+            <p class="card-text">Nazwa firmy: <%= @client.company_name %></p>
+            <p class="card-text">Imię właściciela: <%= @client.owner_name %></p>
+            <p class="card-text">Nazwisko właściciela: <%= @client.owner_last_name %></p>
+            <p class="card-text">Ulica: <%= @client.street %></p>
+            <p class="card-text">Kod pocztowy: <%= @client.postal_code %></p>
+            <p class="card-text">Miasto: <%= @client.city %></p>
+            <p class="card-text">Województwo: <%= @client.province %></p>
+            <p class="card-text">Kraj: <%= @client.country %></p>
+            <p class="card-text">NIP: <%= @client.tax_number %></p>
+            <p class="card-text">REGON: <%= @client.regon %></p>
+            <p class="card-text">Email: <%= @client.email %></p>
+            
+            <div class="d-flex justify-content-end">
+              <%= link_to 'Edytuj', edit_user_client_path(@user, @client), class: 'btn btn-primary btn-sm ml-1' %>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <%= link_to 'Powrót', user_clients_path(@user), class: 'btn btn-success btn-sm ml-1' %>
+        </div>
+    </div>
+  </div>

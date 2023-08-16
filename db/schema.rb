@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_162557) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_160316) do
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "street"
@@ -59,6 +59,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_162557) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.string "place_of_issue"
+    t.date "date_of_issue"
+    t.date "date_of_payment"
+    t.string "product_name"
+    t.string "unit"
+    t.integer "net_price"
+    t.integer "net_value"
+    t.integer "vat_rate"
+    t.integer "amount_of_vat"
+    t.integer "gross_value"
+    t.integer "quantity"
+    t.integer "user_id", null: false
+    t.integer "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_invoices_on_client_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -71,4 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_162557) do
   add_foreign_key "addresses", "users"
   add_foreign_key "clients", "users"
   add_foreign_key "companies", "users"
+  add_foreign_key "invoices", "clients"
+  add_foreign_key "invoices", "users"
 end

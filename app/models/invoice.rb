@@ -1,4 +1,4 @@
 class Invoice < ApplicationRecord
   belongs_to :user
-  belongs_to :client
+  has_one :client
 end

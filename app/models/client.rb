@@ -1,6 +1,6 @@
 class Client < ApplicationRecord
   belongs_to :user
-  has_many :invoices, dependent: :destroy
+  belongs_to :invoices
 
   validates :company_name, presence: true
   validates :owner_name, presence: true

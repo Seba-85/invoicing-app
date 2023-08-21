@@ -1,5 +1,6 @@
 class Client < ApplicationRecord
   belongs_to :user
+  belongs_to :invoices
 
   validates :company_name, presence: true
   validates :owner_name, presence: true

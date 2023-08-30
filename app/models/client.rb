@@ -1,6 +1,6 @@
 class Client < ApplicationRecord
   belongs_to :user
-  belongs_to :invoices
+  has_many :invoices, dependent: :destroy
 
   validates :company_name, presence: true
   validates :owner_name, presence: true
@@ -10,7 +10,7 @@ class Client < ApplicationRecord
   validates :city, presence: true
   validates :province, presence: true
   validates :country, presence: true
-  validates :tax_number, presence: true, length: { is: 10 } 
+  validates :tax_number, presence: true
   validates :regon, presence: true
   validates :email, presence: true
 end

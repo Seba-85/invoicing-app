@@ -1,0 +1,64 @@
+<div class="container-xl">  
+  <div class="d-flex flex-column justify-content-center align-items-center m-5 border py-5">
+    <h2>Wprowadź dane faktury:</h2>
+
+    <div class='mt-3'>
+      <%= form_with(model: @invoice, url: user_invoices_path(@user)) do |f| %>
+        <%= f.fields_for :invoice do |ff| %>
+          <div class="form-group">
+            <%= ff.label :client_id, 'Klient', class: 'font-weight-bold'  %>
+            <%= ff.collection_select :client_id, @user.clients, :id, :company_name, prompt: 'Proszę wybierz', class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= ff.label :place_of_issue, 'Miejsce wystawienia' %>
+            <%= ff.text_field :place_of_issue, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :date_of_issue, 'Data wystawienia' %>
+            <%= ff.text_field :date_of_issue, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :date_of_payment, 'Data płatności' %>
+            <%= ff.text_field :date_of_payment, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :product_name, 'Nazwa towaru' %>
+            <%= ff.text_field :product_name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :unit, 'Jm' %>
+            <%= ff.text_field :unit, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :net_price, 'Cena netto' %>
+            <%= ff.text_field :net_price, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :net_value, 'Wartość netto' %>
+            <%= ff.text_field :net_value, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :vat_rate, 'VAT' %>
+            <%= ff.text_field :vat_rate, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :amount_of_vat, 'Kwota VAT' %>
+            <%= ff.text_field :amount_of_vat, class: 'form-control' %>
+          </div>
+           <div class="form-group">
+            <%= ff.label :gross_value, 'Wartość brutto' %>
+            <%= ff.text_field :gross_value, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :quantity, 'Ilość' %>
+            <%= ff.text_field :quantity, class: 'form-control' %>
+          </div>
+          
+          <%= f.submit 'Zapisz', class: 'btn btn-primary' %>
+          <%= link_to 'Powrót',  user_invoices_path(@user), class: 'btn btn-secondary ml-1' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

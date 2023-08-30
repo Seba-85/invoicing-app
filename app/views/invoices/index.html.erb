@@ -1,0 +1,35 @@
+ <div class="container-xl">
+  <div class="d-flex justify-content-center align-items-center mt-5">
+    <table class="table">
+      <thead class="thead-primary">
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nazwa klienta</th>
+        <th scope="col">Data wystawienia</th>
+        <th scope="col">Nazwa towaru</th>
+        <th scope="col">Wartość brutto</th>
+        <th scope="col">Akcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.invoices.each do |invoice| %>
+          <tr>
+            <th scope="row"><%= invoice.id %></th>
+            <td><%= invoice.client.company_name %></td>
+            <td><%= invoice.date_of_issue %></td>
+            <td><%= invoice.product_name %></td>
+            <td><%= invoice.gross_value %></td>
+            <td class="d-flex">
+              <%= link_to 'Podgląd', user_invoice_path(@user, invoice), class: 'btn btn-success btn-sm ml-1' %>
+              <%= link_to 'Edytuj', edit_user_invoice_path(@user, invoice), class: 'btn btn-primary btn-sm ml-1' %>
+              <%= button_to "Usuń", user_invoice_path(@user, invoice), method: :delete, class: 'btn btn-danger btn-sm ml-1'%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to 'Nowa faktura', new_user_invoice_path, class: 'btn btn-dark btn-sm w-100 p-2 mt-3'%>
+  <%= link_to 'Powrót',  user_clients_path(@user), class: 'btn btn-primary ml-1' %>
+</div>
+

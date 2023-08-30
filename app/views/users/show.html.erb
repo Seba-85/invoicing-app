@@ -6,7 +6,8 @@
       <div class="media-body">
         <h5 class="mt-0"><%= @user.first_name %> <%= @user.last_name %></h5>
         <p>Email: <%= @user.email%></p>
-        <%= link_to 'Klienci', user_clients_path(@user), class: 'btn btn-primary' %>
+        <%= link_to 'Faktury', user_invoices_path(@user), class: 'btn btn-success btn-sm ml-1' %>
+        <%= link_to 'Klienci', user_clients_path(@user), class: 'btn btn-primary' %>  <%= link_to 'Nowa faktura', new_user_invoice_path(@user), class: 'btn btn-primary mr-1' %>
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia.</p>
         <p><strong>Adres:</strong></p>  
 

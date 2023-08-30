@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resources :addresses, path: 'addresses'
     resources :companies, path: 'companies'
     resources :clients, path: 'clients'
+    resources :invoices, path: 'invoices'
   end
 end

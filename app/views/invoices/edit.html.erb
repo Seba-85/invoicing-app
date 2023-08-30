@@ -1,0 +1,61 @@
+<div class="container-xl">  
+  <div class="d-flex flex-column justify-content-center align-items-center m-5 border py-5">
+    <h2>Edytuj dane faktury:</h2>
+
+    <div class='mt-3'>
+      <%= form_with(model: @invoice, url: user_invoice_path(@user)) do |f| %>
+        <div class="form-group">
+          <%= f.label :client_id, 'Klient', class: 'font-weight-bold'  %>
+          <%= f.collection_select :client_id, @user.clients, :id, :company_name, prompt: 'Proszę wybierz', class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :place_of_issue, 'Miejsce wystawienia' %>
+          <%= f.text_field :place_of_issue, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :date_of_issue, 'Data wystawienia' %>
+          <%= f.text_field :date_of_issue, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :date_of_payment, 'Data płatności' %>
+          <%= f.text_field :date_of_payment, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :product_name, 'Nazwa towaru' %>
+          <%= f.text_field :product_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :unit, 'Jm' %>
+          <%= f.text_field :unit, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :net_price, 'Cena netto' %>
+          <%= f.text_field :net_price, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :net_value, 'Wartość netto' %>
+          <%= f.text_field :net_value, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :vat_rate, 'VAT' %>
+          <%= f.text_field :vat_rate, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :amount_of_vat, 'Kwota VAT' %>
+          <%= f.text_field :amount_of_vat, class: 'form-control' %>
+        </div>
+          <div class="form-group">
+          <%= f.label :gross_value, 'Wartość brutto' %>
+          <%= f.text_field :gross_value, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :quantity, 'Ilość' %>
+          <%= f.text_field :quantity, class: 'form-control' %>
+        </div>
+        
+        <%= f.submit 'Zapisz', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

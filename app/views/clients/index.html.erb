@@ -32,5 +32,8 @@
       </tbody>
     </table>
   </div>
-  <%= link_to 'Nowy Klient', new_user_client_path, class: 'btn btn-primary btn-sm w-100 p-2 mt-3'%>
-</div>
+    <%= link_to 'Nowy Klient', new_user_client_path, class: 'btn btn-primary btn-sm w-100 p-2 mt-3'%>
+    <%= link_to 'Faktury użytkowników', user_invoices_path(@user),  class: 'btn btn-warning btn-sm w-100 p-2 mt-3' %>
+    <%= link_to 'Nowa faktura', new_user_invoice_path, class: 'btn btn-dark btn-sm w-100 p-2 mt-3'%>
+    <%= link_to 'Powrót',  users_path(@user), class: 'btn btn-secondary ml-1' %>
+  </div>

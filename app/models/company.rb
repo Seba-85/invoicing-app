@@ -9,7 +9,7 @@ class Company < ApplicationRecord
   validates :city, presence: true
   validates :province, presence: true
   validates :country, presence: true
-  validates :tax_number, presence: true
+  validates :tax_number, presence: true, length: { is: 10 } 
   validates :regon, presence: true
   validates :phone_number, presence: true
 end

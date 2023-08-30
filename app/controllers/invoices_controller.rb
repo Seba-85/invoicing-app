@@ -44,7 +44,7 @@ class InvoicesController < ApplicationController
     end
   end
 
-private
+  private
 
   def find_user
     @user = User.find(params[:user_id])

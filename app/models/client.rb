@@ -10,7 +10,7 @@ class Client < ApplicationRecord
   validates :city, presence: true
   validates :province, presence: true
   validates :country, presence: true
-  validates :tax_number, presence: true
+  validates :tax_number, presence: true, length: { is: 10 } 
   validates :regon, presence: true
   validates :email, presence: true
 end

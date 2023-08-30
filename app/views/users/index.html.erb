@@ -20,12 +20,13 @@
             <td class="d-flex">
               <%= link_to 'Podgląd', user, class: 'btn btn-success btn-sm ml-1' %>
               <%= link_to 'Edytuj', edit_user_path(user), class: 'btn btn-primary btn-sm ml-1' %>
-              <%= button_to 'Usuń', user_path(user), method: :delete, class: 'btn btn-danger btn-sm ml-1' %>
+              <%= button_to 'Usuń', user_path(user), method: :delete, class: 'btn btn-danger btn-sm m1-1' %> 
+              <%= link_to 'Klienci', user_clients_path(user), class: 'btn btn-primary' %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-  <%= link_to 'Nowy Użytkownik', new_user_path, class: 'btn btn-primary btn-sm w-100 p-2 mt-3'%>
-</div>
+    <%= link_to 'Nowy Użytkownik', new_user_path, class: 'btn btn-primary btn-sm w-100 p-2 mt-3'%>
+  </div>

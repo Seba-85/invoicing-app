@@ -12,7 +12,6 @@ class ClientsController < ApplicationController
 
   def edit; end
 
-
   def create
     @client = @user.clients.new(client_params)
 
@@ -31,7 +30,7 @@ class ClientsController < ApplicationController
     else
       render :edit
 
-      flash[:alert] = 'Wystąpił błąd podczas edycji adresu.'
+      flash[:alert] = 'Wystąpił błąd podczas edycji klienta.'
     end
   end
 
@@ -39,7 +38,7 @@ class ClientsController < ApplicationController
     if @client.destroy
       redirect_to user_clients_path(@user), notice: 'Dane klienta zostały prawidłowo usunięte'
     else
-      flash[:alert] = 'Wystąpił błąd podczas usuwania adresu.'
+      flash[:alert] = 'Wystąpił błąd podczas usuwania klienta.'
     end
   end
 
